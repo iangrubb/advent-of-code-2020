@@ -7,7 +7,7 @@ defmodule PassportValidator do
     count_valid_passport_submissions(&valid_passport?/1)
   end
 
-  def count_valid_passport_submissions(condition) do
+  defp count_valid_passport_submissions(condition) do
     stream_passport_submissions()
     |> Stream.map(&convert_submission_to_passport/1)
     |> Stream.filter(condition)
